@@ -1,0 +1,7 @@
+#!/bin/bash
+# login to vsc4 with tunnel to geo.tuwien by specifing wich login node you want to login to
+
+# 1: login node number on vsc 4
+
+# tunnel via ssh.geo.tuwien.ac.at
+ssh -t jgruber1@ssh.geo.tuwien.ac.at ssh jgruber1@l4$1.vsc.ac.at
