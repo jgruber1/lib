@@ -1,7 +1,20 @@
 #!/bin/bash
-# login to vsc4 with tunnel to geo.tuwien by specifing wich login node you want to login to
+# login to vsc4 by using geo.tuwien.ac.at as a tunnel
+# if no argument is specified, the script uses vsc4.vsc.ac.at (then the vsc4 software decides on parameters, which I am not aware of which ones, to which login node one will be assigned)
+# argument can be a number between 1 to 9 which referres to the vsc4 login node. 
 
 # 1: login node number on vsc 4
 
-# tunnel via ssh.geo.tuwien.ac.at
-ssh -t jgruber1@ssh.geo.tuwien.ac.at ssh jgruber1@l4$1.vsc.ac.at
+if [ $# -eq 0 ]; then
+
+	# tunnel via ssh.geo.tuwien.ac.at to vsc4.vsc.ac.at
+	ssh -t jgruber1@ssh.geo.tuwien.ac.at ssh jgruber1@vsc4.vsc.ac.at
+	
+else
+
+	# tunnel via ssh.geo.tuwien.ac.at to the login node specified as a number in the argument
+	ssh -t jgruber1@ssh.geo.tuwien.ac.at ssh jgruber1@l4$1.vsc.ac.at
+
+fi
+
+
